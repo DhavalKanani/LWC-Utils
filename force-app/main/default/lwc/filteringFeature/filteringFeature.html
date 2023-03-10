@@ -1,0 +1,45 @@
+<template>
+  <lightning-card title="Filtering Feature">
+    <lightning-layout multiple-rows>
+      <lightning-layout-item padding="around-small" size="4">
+        <lightning-combobox
+          name="filteredByColumn"
+          label="Filtered By Column"
+          value={filteredByColumn}
+          options={filteredByColumnOptions}
+          onchange={filteredByChange}
+        ></lightning-combobox>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small" size="4">
+        <lightning-combobox
+          name="filteredByOperator"
+          label="Filtered By Operator"
+          value={filteredByOperator}
+          options={filteredByOperatorOptions}
+          onchange={filteredByChange}
+        ></lightning-combobox>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small" size="4">
+        <lightning-input
+          type="text"
+          variant="standard"
+          label="Filtered By Text"
+          name="filteredByText"
+          placeholder="type here..."
+          value={filteredByText}
+          onchange={filteredByChange}
+        ></lightning-input>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small">
+        <lightning-datatable
+          key-field="id"
+          data={filteredAccounts}
+          show-row-number-column
+          hide-checkbox-column
+          columns={columns}
+        >
+        </lightning-datatable>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+</template>
